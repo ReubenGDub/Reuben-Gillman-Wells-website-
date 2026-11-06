@@ -1,0 +1,382 @@
+/* =========================================================
+   REUBEN GILLMAN-WELLS — WEBSITE STYLES
+   FIND: COLOURS to change the brand palette.
+   FIND: GLOBAL to change the overall layout and typography.
+   ========================================================= */
+
+/* FIND: COLOURS — Brand palette */
+:root {
+  --navy: #202B36;
+  --navy-deep: #18232D;
+  --ivory: #EDE9DF;
+  --paper: #F5F2EB;
+  --sage: #75816D;
+  --bronze: #A98261;
+  --ink: #26313A;
+  --muted: #73766F;
+  --line: rgba(32, 43, 54, 0.17);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", Arial, sans-serif;
+}
+
+/* FIND: GLOBAL — Basic reset, page background and default text */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.section-shell { width: min(1500px, calc(100% - clamp(48px, 8vw, 120px))); margin-inline: auto; }
+.eyebrow, .section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  line-height: 1.5;
+}
+.eyebrow { color: var(--sage); }
+.section-label { color: var(--muted); }
+
+/* FIND: NAVIGATION — Header, wordmark, links and mobile menu button */
+.site-header {
+  width: 100%;
+  height: clamp(92px, 7vw, 115px);
+    padding: 0 max(32px, calc((100% - 1500px) / 2));
+  box-sizing: border-box;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wordmark, .footer-name {
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.wordmark {
+  font-size: clamp(25px, 2vw, 32px);
+}
+
+.wordmark span, .footer-name span {
+  color: var(--bronze);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.main-nav {
+  gap: clamp(38px, 3vw, 55px);
+}
+
+.main-nav a {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  transition: color .2s ease;
+}
+
+.main-nav a {
+  font-size: clamp(12px, 0.9vw, 15px);
+}
+
+.main-nav a:hover, .social-links a:hover {
+  color: var(--bronze);
+}
+
+.main-nav .nav-contact {
+  border-bottom: 1px solid var(--bronze);
+  padding-bottom: 5px;
+}
+
+.nav-contact span {
+  color: var(--bronze);
+  margin-left: 5px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 10px 0 10px 10px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 1px;
+  background: var(--navy);
+  margin: 6px 0;
+}
+body {
+  padding-top: 92px;
+}
+
+
+/* FIND: HERO — Main title, intro text, buttons and abstract artwork */
+.hero {
+  min-height: 650px;
+  padding-top: 104px;
+  padding-bottom: 58px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  position: relative;
+}
+.hero-copy { position: relative; z-index: 2; padding-bottom: 45px; }
+.eyebrow-line { display: inline-block; width: 27px; height: 1px; background: var(--bronze); vertical-align: middle; margin-right: 10px; }
+.hero h1, h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: .98;
+}
+.hero h1 { font-size: clamp(68px, 8vw, 112px); margin: 30px 0 27px; }
+.hero h1 em, h2 em { color: var(--sage); font-weight: 400; }
+.hero-intro { max-width: 420px; color: #5F625E; font-size: 14px; line-height: 1.9; }
+.hero-actions { display: flex; align-items: center; gap: 29px; margin-top: 35px; }
+.button {
+  min-height: 49px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  padding: 0 21px;
+  font-size: 10px;
+  letter-spacing: .055em;
+  transition: transform .2s ease, background .2s ease;
+}
+.button:hover { transform: translateY(-2px); }
+.button-dark { background: var(--navy); color: var(--ivory); }
+.button-dark:hover { background: var(--sage); }
+.button-mid { background: var(--navy); color: var(--ivory); font-size: 16px;}
+.button-mid:hover { background: var(--sage); }
+.text-link { font-size: 11px; border-bottom: 1px solid var(--bronze); padding-bottom: 5px; }
+.text-link span { color: var(--bronze); margin-left: 7px; }
+.hero-art {
+  width: min(100%, 490px);
+  aspect-ratio: 1 / 1;
+  justify-self: end;
+  position: relative;
+  overflow: hidden;
+  background: #DADBD1;
+  border-radius: 50%;
+}
+.art-disc {
+  position: absolute; width: 58%; height: 58%; border-radius: 50%;
+  background: var(--navy); top: 20%; left: 19%;
+  box-shadow: 36px 27px 0 -5px var(--bronze);
+}
+.art-disc::after {
+  content: ""; position: absolute; width: 32%; height: 32%; border-radius: 50%;
+  background: var(--ivory); top: 34%; left: 34%;
+}
+.art-orbit { position: absolute; border: 1px solid rgba(32,43,54,.45); border-radius: 50%; z-index: 2; }
+.orbit-one { width: 83%; height: 83%; top: 8%; left: 8%; transform: rotate(-31deg) scaleY(.63); }
+.orbit-two { width: 70%; height: 105%; top: -3%; left: 16%; transform: rotate(43deg) scaleY(.7); }
+.art-line { position: absolute; height: 1px; background: var(--bronze); z-index: 3; }
+.art-line-one { width: 80%; top: 48%; left: 10%; transform: rotate(-28deg); }
+.art-line-two { width: 65%; top: 54%; left: 20%; transform: rotate(54deg); }
+.art-caption, .art-number { position: absolute; z-index: 4; font-size: 8px; letter-spacing: .2em; }
+.art-caption { left: 12%; bottom: 16%; }
+.art-number { right: 13%; top: 15%; }
+.hero-bottom-note {
+  position: absolute; bottom: 25px; left: 0; right: 0;
+  display: flex; justify-content: space-between; color: var(--muted);
+  font-size: 9px; letter-spacing: .16em;
+}
+
+/* FIND: INTRODUCTION — About section */
+
+.intro-section {
+  background: var(--navy);
+  color: var(--ivory);
+  padding: 112px 0 125px;
+  border-top: 1px solid rgba(237,233,223,.2);
+  display: grid;
+  grid-template-columns: .28fr .72fr;
+  gap: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.48), 0 -3px 12px rgba(0, 0, 0, 0.48); position: relative; z-index: 1;
+  /* Extend navy background to the full screen width */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.intro-content h2 {
+  max-width: 720px;
+  font-size: clamp(45px, 5.6vw, 73px);
+  margin: 0 0 42px;
+  color: var(--ivory);
+}
+
+.intro-content h2 em {
+  color: #A9B29F;
+}
+
+.intro-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  max-width: 770px;
+}
+
+.intro-columns p {
+  margin: 0;
+  color: #C2C5BE;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.intro-section .section-label {
+  color: #AAB0A7;
+}
+.intro-section .section-label {
+  color: #AAB0A7;
+  padding-left: 40px;
+}
+
+
+
+/* FIND: MUSIC AREAS — Four cards describing your creative disciplines */
+.music-section { padding-top: 90px; padding-bottom: 125px; border-top: 1px solid var(--line); }
+.section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 58px; }
+.section-heading h2 { font-size: clamp(48px, 5.7vw, 76px); margin: 17px 0 0; }
+.section-aside { max-width: 220px; color: var(--muted); font-size: 12px; line-height: 1.8; margin-bottom: 5px; }
+.discipline-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.discipline-card { min-height: 300px; padding: 24px 25px 30px 0; position: relative; }
+.discipline-card + .discipline-card { border-left: 1px solid var(--line); padding-left: 25px; }
+.card-index { color: var(--bronze); font-size: 9px; letter-spacing: .15em; }
+.discipline-card h3 { font-family: var(--serif); font-size: 30px; line-height: 1.02; font-weight: 500; margin: 24px 0 13px; }
+.discipline-card p { color: var(--muted); font-size: 11px; line-height: 1.85; max-width: 220px; margin: 0; }
+.discipline-symbol { height: 48px; margin-top: 28px; color: var(--sage); }
+.symbol-orchestra { display: flex; align-items: center; gap: 5px; }
+.symbol-orchestra i { display: block; width: 5px; border: 1px solid var(--sage); border-radius: 8px; transform: rotate(25deg); }
+.symbol-orchestra i:nth-child(1) { height: 26px; }
+.symbol-orchestra i:nth-child(2) { height: 42px; }
+.symbol-orchestra i:nth-child(3) { height: 32px; }
+.symbol-choral { font-family: var(--serif); font-size: 48px; line-height: 1; }
+.symbol-songs { display: flex; align-items: center; gap: 7px; }
+.symbol-songs span { display: block; width: 3px; background: var(--sage); border-radius: 5px; }
+.symbol-songs span:nth-child(1) { height: 17px; }
+.symbol-songs span:nth-child(2) { height: 39px; }
+.symbol-songs span:nth-child(3) { height: 27px; }
+.symbol-stage { font-size: 42px; line-height: 1; }
+
+/* FIND: CURRENT FOCUS — Dark section for works in progress; no finished portfolio required */
+.focus-section { background: var(--navy); color: var(--ivory); box-shadow: 0 3px 12px rgba(0, 0, 0, 0.48), 0 -3px 12px rgba(0, 0, 0, 0.48); position: relative; z-index: 1;}
+.focus-inner { min-height: 510px; padding-top: 85px; padding-bottom: 85px; display: grid; grid-template-columns: .28fr .52fr .2fr; align-items: center; }
+.focus-section .section-label { color: #AAB0A7; align-self: start; }
+.focus-copy .eyebrow { color: #B5A28C; }
+.focus-copy h2 { font-size: clamp(54px, 6vw, 78px); margin: 20px 0 24px; }
+.focus-copy h2 em { color: #A9B29F; }
+.focus-copy > p:not(.eyebrow) { color: #C2C5BE; max-width: 420px; font-size: 12px; line-height: 1.9; margin-bottom: 30px; }
+.light-link { color: var(--ivory); }
+.focus-mark { width: 170px; height: 170px; justify-self: end; position: relative; display: grid; place-items: center; }
+.focus-ring { position: absolute; inset: 0; border: 1px solid rgba(237,233,223,.55); border-radius: 50%; }
+.focus-ring-two { inset: 17px; border-color: rgba(169,130,97,.8); }
+.focus-mark span { text-align: center; font-family: var(--serif); font-size: 17px; line-height: 1.05; letter-spacing: .12em; }
+
+/* FIND: CREATIVE APPROACH — Pull quote and personal statement */
+.approach-section { padding-top: 115px; padding-bottom: 125px; display: grid; grid-template-columns: .28fr .72fr; gap: 30px; }
+.approach-content { max-width: 780px; }
+.approach-content blockquote {
+  font-family: var(--serif); font-size: clamp(39px, 5vw, 65px);
+  line-height: 1.08; letter-spacing: -.025em; margin: 22px 0 27px;
+}
+.approach-note { color: var(--muted); font-size: 11px; }
+
+/* FIND: CONTACT — Final call to action */
+.contact-section { background: #DADBD1; box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18), 0 -3px 12px rgba(0, 0, 0, 0.18); position: relative; z-index: 1;}
+.contact-inner { padding-top: 90px; padding-bottom: 100px; }
+.contact-inner h2 { font-size: clamp(60px, 7vw, 90px); margin: 22px 0; }
+.contact-inner h2 em { color: var(--sage); }
+.contact-inner > p:not(.eyebrow) { max-width: 400px; color: #626761; font-size: 12px; margin-bottom: 28px; }
+.button-light { background: var(--ivory); color: var(--navy); }
+.button-light:hover { background: white; }
+
+
+/* FIND: FOOTER — Name, social links and copyright */
+.site-footer {
+  min-height: 150px; display: grid;
+  grid-template-columns: 1.2fr 1fr 1.4fr auto;
+  align-items: center; gap: 20px;
+}
+.footer-name { font-size: 21px; }
+.site-footer > p { font-size: 12px; color: var(--muted); }
+.social-links { display: flex; gap: 20px; }
+.social-links a, .copyright { font-size: 12px; color: var(--muted); }
+.copyright { text-align: right; }
+
+/* FIND: RESPONSIVE — Tablet and mobile layout adjustments */
+@media (max-width: 900px) {
+  .hero { min-height: 570px; padding-top: 75px; }
+  .hero h1 { font-size: clamp(48px, 5.5vw, 90px); }
+  .discipline-grid { grid-template-columns: repeat(2, 1fr); }
+  .discipline-card:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+  .discipline-card:nth-child(4) { border-top: 1px solid var(--line); }
+  .focus-inner { grid-template-columns: .25fr .55fr .2fr; }
+  .focus-mark { width: 130px; height: 130px; }
+  .site-footer { grid-template-columns: 1fr 1fr; padding-top: 30px; padding-bottom: 30px; }
+  .copyright { text-align: left; }
+}
+@media (max-width: 640px) {
+  .section-shell, .site-header { width: min(100% - 40px, 520px); }
+  .site-header { height: 76px; }
+  .wordmark { font-size: 22px; }
+  .menu-toggle { display: block; }
+  .main-nav {
+    display: none; position: absolute; top: 75px; left: -20px; right: -20px;
+    padding: 22px 20px 28px; background: var(--paper);
+    border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 18px;
+  }
+  .main-nav.is-open { display: flex; }
+  .hero { display: flex; flex-direction: column; align-items: stretch; padding-top: 75px; padding-bottom: 75px; }
+  .hero-copy { padding-bottom: 45px; }
+  .hero h1 { font-size: clamp(64px, 16vw, 86px); }
+  .hero-art { width: min(82%, 360px); align-self: center; }
+  .hero-bottom-note { bottom: 20px; font-size: 7px; }
+  .intro-section, .approach-section { display: block; padding-top: 75px; padding-bottom: 80px; }
+  .intro-content, .approach-content { margin-top: 35px; }
+  .intro-content h2 { font-size: 49px; margin-bottom: 28px; }
+  .intro-columns { grid-template-columns: 1fr; gap: 16px; }
+  .music-section { padding-top: 75px; padding-bottom: 80px; }
+  .section-heading { display: block; margin-bottom: 35px; }
+  .section-heading h2 { font-size: 57px; }
+  .section-aside { margin-top: 20px; }
+  .discipline-card { min-height: 280px; padding-right: 14px; }
+  .discipline-card + .discipline-card { padding-left: 15px; }
+  .discipline-card:nth-child(3) { padding-left: 0; }
+  .discipline-card h3 { font-size: 27px; }
+  .discipline-card p { font-size: 10px; }
+  .focus-inner { display: grid; grid-template-columns: 1fr auto; gap: 25px; padding-top: 70px; padding-bottom: 75px; }
+  .focus-inner .section-label { grid-column: 1 / -1; }
+  .focus-copy h2 { font-size: 57px; }
+  .focus-mark { width: 95px; height: 95px; align-self: end; }
+  .focus-mark span { font-size: 12px; }
+  .contact-inner { padding-top: 75px; padding-bottom: 80px; }
+  .contact-inner h2 { font-size: 69px; }
+  .site-footer { grid-template-columns: 1fr; gap: 8px; padding-top: 32px; padding-bottom: 35px; }
+  .social-links { margin: 12px 0; flex-wrap: wrap; }
+}
