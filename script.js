@@ -41,3 +41,88 @@ function updateZoom() {
 
 updateZoom();
 window.addEventListener("resize", updateZoom);
+
+// =========================================================
+// FIND: AUDIO PLAYERS — Play/pause, progress and seeking for the music samples.
+// =========================================================
+function formatTime(s) {
+  if (!isFinite(s)) return "0:00";
+  s = Math.max(0, Math.round(s));
+  return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+}
+
+const audioPlayers = document.querySelectorAll(".audio-player");
+
+audioPlayers.forEach((player) => {
+  const audio = player.querySelector("audio");
+  const btn = player.querySelector(".audio-btn");
+  const track = player.querySelector(".audio-track");
+  const fill = player.querySelector(".audio-fill");
+  const time = player.querySelector(".audio-time");
+  if (!audio || !btn || !track || !fill || !time) return;
+
+  function update() {
+    const d = audio.duration;
+    const pct = d ? (audio.currentTime / d) * 100 : 0;
+    fill.style.width = pct + "%";
+    track.setAttribute("aria-valuenow", String(Math.round(pct)));
+    time.textContent = d ? formatTime(d - audio.currentTime) : "0:00"; // counts down
+  }
+
+  audio.addEventListener("loadedmetadata", update);
+  audio.addEventListener("timeupdate", update);
+
+  audio.addEventListener("play", () => {
+    // Only one sample plays at a time
+    audioPlayers.forEach((other) => {
+      if (other !== player) {
+        const a = other.querySelector("audio");
+        if (a) a.pause();
+      }
+    });
+    player.classList.add("is-playing");
+    btn.setAttribute("aria-label", "Pause sample");
+  });
+
+  function stopped() {
+    player.classList.remove("is-playing");
+    btn.setAttribute("aria-label", "Play sample");
+  }
+  audio.addEventListener("pause", stopped);
+  audio.addEventListener("ended", () => {
+    stopped();
+    audio.currentTime = 0;
+    update();
+  });
+
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+    }
+  });
+
+  // Click or drag on the bars to jump to a point in the sample
+  function seek(e) {
+    if (!audio.duration) return;
+    const ratio = Math.min(1, Math.max(0, e.offsetX / track.offsetWidth));
+    audio.currentTime = ratio * audio.duration;
+    update();
+  }
+  let dragging = false;
+  track.addEventListener("pointerdown", (e) => {
+    dragging = true;
+    track.setPointerCapture(e.pointerId);
+    seek(e);
+  });
+  track.addEventListener("pointermove", (e) => { if (dragging) seek(e); });
+  track.addEventListener("pointerup", () => { dragging = false; });
+  track.addEventListener("pointercancel", () => { dragging = false; });
+
+  // Keyboard: left/right arrows skip 5 seconds
+  track.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+    if (e.key === "ArrowLeft") audio.currentTime = Math.max(0, audio.currentTime - 5);
+  });
+});
