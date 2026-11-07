@@ -295,6 +295,65 @@ body {
 .symbol-songs span:nth-child(3) { height: 27px; }
 .symbol-stage { font-size: 42px; line-height: 1; }
 
+/* AUDIO PLAYER — plugin-style sample player on the music cards */
+.discipline-card:has(.audio-player) { display: flex; flex-direction: column; }
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;      /* pushes the player to the bottom of each card */
+  padding-top: 24px;
+  max-width: 100%;
+}
+.audio-btn {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--ivory);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.audio-btn:hover { background: var(--sage); transform: scale(1.06); }
+.audio-btn svg { width: 14px; height: 14px; fill: currentColor; }
+.audio-btn .icon-pause { display: none; }
+.audio-player.is-playing .icon-play { display: none; }
+.audio-player.is-playing .icon-pause { display: block; }
+
+.audio-track {
+  --bar: rgba(32, 43, 54, 0.22);
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 26px;
+  cursor: pointer;
+  touch-action: pan-y;
+  background: repeating-linear-gradient(90deg, var(--bar) 0 2px, transparent 2px 5px);
+}
+.audio-fill {
+  --bar: var(--bronze);
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(90deg, var(--bar) 0 2px, transparent 2px 5px);
+}
+.audio-track:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
+
+.audio-time {
+  flex: none;
+  min-width: 30px;
+  text-align: right;
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
 /* FIND: CURRENT FOCUS — Dark section for works in progress; no finished portfolio required */
 .focus-section { background: var(--navy); color: var(--ivory); box-shadow: 0 3px 12px rgba(0, 0, 0, 0.48), 0 -3px 12px rgba(0, 0, 0, 0.48); position: relative; z-index: 1;}
 .focus-inner { min-height: 510px; padding-top: 85px; padding-bottom: 85px; display: grid; grid-template-columns: .28fr .52fr .2fr; align-items: center; }
@@ -317,6 +376,62 @@ body {
   line-height: 1.08; letter-spacing: -.025em; margin: 22px 0 27px;
 }
 .approach-note { color: var(--muted); font-size: 11px; }
+
+/* MEDIA — YouTube video (About) and image (Approach) share one size */
+:root { --media-w: clamp(280px, 28vw, 400px); }
+
+/* About: text shifts left only when a video is present */
+.intro-section:has(.intro-video) {
+  grid-template-columns: .2fr minmax(0, 1fr) var(--media-w);
+}
+.intro-video { align-self: center; }
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--navy-deep);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Approach: quote shifts left only when an image is present */
+.approach-section:has(.approach-image) {
+  grid-template-columns: .2fr minmax(0, 1fr) var(--media-w);
+  align-items: center;
+}
+.approach-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.approach-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Narrower screens: media drops below the text */
+@media (max-width: 1000px) {
+  .intro-section:has(.intro-video),
+  .approach-section:has(.approach-image) {
+    grid-template-columns: .28fr .72fr;
+  }
+  .intro-video, .approach-image { grid-column: 2; margin-top: 20px; }
+}
+
+/* Phones: stack with the text */
+@media (max-width: 640px) {
+  .intro-video, .approach-image { margin-top: 35px; width: 100%; }
+}
 
 /* FIND: CONTACT — Final call to action */
 .contact-section { background: #DADBD1; box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18), 0 -3px 12px rgba(0, 0, 0, 0.18); position: relative; z-index: 1;}
@@ -436,4 +551,3 @@ body {
     margin-right: 6px;
   }
 }
-
