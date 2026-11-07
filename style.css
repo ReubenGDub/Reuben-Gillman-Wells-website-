@@ -444,7 +444,7 @@ body {
 .works-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(56px, 7vw, 90px);
+  font-size: clamp(56px, 7vw, 78px);
   letter-spacing: -0.045em;
   line-height: .98;
   text-align: center;
@@ -455,6 +455,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 56px 40px;
+  max-width: 1050px;      /* smaller number = smaller boxes */
+  margin-inline: auto;    /* keeps the grid centred */
 }
 
 .work-card { display: block; }
@@ -464,6 +466,7 @@ body {
   background: #DADBD1;
   border: 1px solid var(--line);
   overflow: hidden;
+  aspect-ratio: 16/9;   /* try 4 / 3 (gallery style) or 16 / 9 for YouTube */
 }
 .work-image img {
   width: 100%;
@@ -476,7 +479,7 @@ body {
 
 .work-name {
   font-family: var(--serif);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -487,7 +490,7 @@ body {
 
 .work-meta {
   margin: 0;
-  font-size: 13px;
+  font-size: 11px;
   color: var(--muted);
 }
 
