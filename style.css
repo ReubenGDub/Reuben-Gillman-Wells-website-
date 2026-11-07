@@ -104,7 +104,7 @@ button { font: inherit; }
   font-size: clamp(12px, 0.9vw, 15px);
 }
 
-.main-nav a:hover, .social-links a:hover {
+.main-nav a:hover, .social-links a:hover, .text-link:hover {
   color: var(--bronze);
 }
 
