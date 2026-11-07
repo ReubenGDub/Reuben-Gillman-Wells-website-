@@ -436,13 +436,4 @@ body {
     margin-right: 6px;
   }
 }
-/* Scale the whole page up a little on larger screens */
-@media (min-width: 1200px) {
-  html { zoom: 1.1; }
-}
-@media (min-width: 1600px) {
-  html { zoom: 1.2; }
-}
-@media (min-width: 2000px) {
-  html { zoom: 1.35; }
-}
+
