@@ -354,6 +354,25 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* The wrapper takes over the "push to bottom" job from .audio-player */
+.discipline-card:has(.audio-wrap) { display: flex; flex-direction: column; }
+.audio-wrap { margin-top: auto; padding-top: 24px; }
+.audio-wrap .audio-player { margin-top: 0; padding-top: 0; }
+
+.audio-title {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+.audio-title span {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
 /* FIND: CURRENT FOCUS — Dark section for works in progress; no finished portfolio required */
 .focus-section { background: var(--navy); color: var(--ivory); box-shadow: 0 3px 12px rgba(0, 0, 0, 0.48), 0 -3px 12px rgba(0, 0, 0, 0.48); position: relative; z-index: 1;}
 .focus-inner { min-height: 510px; padding-top: 85px; padding-bottom: 85px; display: grid; grid-template-columns: .28fr .52fr .2fr; align-items: center; }
