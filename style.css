@@ -552,6 +552,8 @@ body {
   margin: 80px auto 0;
   padding-top: 50px;
   border-top: 1px solid var(--line);
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--line);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
