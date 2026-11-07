@@ -493,6 +493,13 @@ body {
   color: var(--muted);
 }
 
+.nothing-here {
+   font-family: var(--serif);
+   margin-inline: auto;
+   text-align: center;
+   display: block;
+}
+
 @media (max-width: 900px) {
   .works-grid { grid-template-columns: repeat(2, 1fr); gap: 44px 28px; }
 }
