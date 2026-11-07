@@ -515,7 +515,7 @@ body {
 .piece-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(48px, 6vw, 80px);
+  font-size: clamp(48px, 6vw, 68px);
   letter-spacing: -0.045em;
   line-height: .98;
   text-align: center;
