@@ -28,3 +28,16 @@ if (menuToggle && mainNav) {
 // Automatically update the year in the footer (only if it exists on the page).
 const yearEl = document.getElementById("currentYear");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Scale the whole page smoothly as the window gets wider (desktop only).
+const ZOOM_START = 1200;    // below this width, no scaling at all
+const ZOOM_STRENGTH = 0.6;  // higher = scales up faster
+
+function updateZoom() {
+  const w = window.innerWidth;
+  const zoom = w > ZOOM_START ? 1 + ((w - ZOOM_START) / ZOOM_START) * ZOOM_STRENGTH : 1;
+  document.documentElement.style.zoom = zoom.toFixed(3);
+}
+
+updateZoom();
+window.addEventListener("resize", updateZoom);
