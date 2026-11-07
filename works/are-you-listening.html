@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Piece 1 by Reuben Gillman-Wells.">
+<meta name="theme-color" content="#202B36">
+<title>Reuben Gillman-Wells — Are You Listening</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header" id="top">
+  <a class="wordmark" href="index.html" aria-label="Reuben Gillman-Wells home">
+    Reuben Gillman-Wells<span></span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+    <a href="store.html">Store</a>
+    <a class="nav-contact" href="index.html#contact">
+      Get in touch <span aria-hidden="true">↗&#xFE0E;</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <article class="piece-section section-shell">
+
+    <a class="piece-back" href="gallery.html">← Back to Works</a>
+
+    <!-- TITLE -->
+    <h1 class="piece-title">Are You Listening</h1>
+
+    <!-- VIDEO — grey box shows until you uncomment the iframe -->
+    <div class="piece-video">
+      <div class="video-frame">
+        <!--
+        <iframe
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+          title="Piece 1"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        -->
+      </div>
+    </div>
+
+    <!-- PROGRAM NOTES -->
+    <section class="piece-notes">
+      <h2 class="piece-heading">Program Notes</h2>
+      <div class="piece-notes-body">
+        <p>This piece for SSAA choir and piano accompaniment is about saving our precious Earth before it's too late.</p>
+      </div>
+    </section>
+
+    <!-- DETAILS: two columns -->
+    <section class="piece-details">
+
+      <div class="piece-col">
+        <div class="piece-item">
+          <h3 class="piece-label">Instrumentation</h3>
+          <p>Piano, Soprano I, Soprano II, Alto I, Alto II</p>
+        </div>
+        <div class="piece-item">
+          <h3 class="piece-label">Duration</h3>
+          <p>3:30</p>
+        </div>
+      </div>
+
+      <div class="piece-col">
+        <div class="piece-item">
+          <h3 class="piece-label">Premiere</h3>
+          <p>Radford College, Canberra — 11th December 2026</p>
+        </div>
+        <div class="piece-item">
+          <h3 class="piece-label">Available for Purchase</h3>
+          <!-- Pick ONE of these three and delete the others: -->
+          <!-- <p><a class="piece-link" href="store.html">View in the Store ↗&#xFE0E;</a></p> -->
+          <p><a class="piece-link" href="index.html#contact">Available on request ↗&#xFE0E;</a></p>
+          <!-- <p>Coming soon</p> -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TEXT — choral pieces only. Delete or comment out this whole block for instrumental pieces -->
+    <!--
+    <section class="piece-text">
+      <h2 class="piece-heading">Text</h2>
+      <div class="piece-text-body">
+        <p>First line of the text<br>Second line of the text<br>Third line of the text</p>
+        <p>Second verse, first line<br>Second verse, second line</p>
+        <p class="piece-credit">Poem Title by Poet Name</p>
+      </div>
+    </section>
+    -->
+
+  </article>
+</main>
+
+<footer class="site-footer section-shell">
+  <a class="footer-name" href="index.html">Reuben Gillman-Wells<span></span></a>
+  <p>Composer · Songwriter · Musician</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/reubengillmanwells/" target="_blank" rel="noopener noreferrer">Instagram ↗&#xFE0E;</a>
+    <a href="https://www.tiktok.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">TikTok ↗&#xFE0E;</a>
+    <a href="https://www.youtube.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">YouTube ↗&#xFE0E;</a>
+  </div>
+  <span class="copyright">© <span id="currentYear"></span> Reuben Gillman-Wells</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
