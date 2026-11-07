@@ -6,21 +6,25 @@
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 
-// Toggle the mobile navigation when the menu button is clicked.
-menuToggle.addEventListener("click", () => {
-  const isOpen = mainNav.classList.toggle("is-open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-});
+function setMenu(open) {
+  mainNav.classList.toggle("is-open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+}
 
-// Close the mobile menu after someone chooses a navigation link.
-mainNav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mainNav.classList.remove("is-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
+// Only set up the menu if this page actually has it.
+if (menuToggle && mainNav) {
+  // Toggle the mobile navigation when the menu button is clicked.
+  menuToggle.addEventListener("click", () => {
+    setMenu(!mainNav.classList.contains("is-open"));
   });
-});
 
-// Automatically update the year in the footer.
-document.getElementById("currentYear").textContent = new Date().getFullYear();
+  // Close the mobile menu after someone chooses a navigation link.
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
+}
+
+// Automatically update the year in the footer (only if it exists on the page).
+const yearEl = document.getElementById("currentYear");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
