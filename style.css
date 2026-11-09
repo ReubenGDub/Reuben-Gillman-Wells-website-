@@ -420,6 +420,16 @@ body {
   border: 0;
 }
 
+.video-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 /* Approach: quote shifts left only when an image is present */
 .approach-section:has(.approach-image) {
   grid-template-columns: .2fr minmax(0, 1fr) var(--media-w);
