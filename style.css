@@ -104,7 +104,7 @@ button { font: inherit; }
   font-size: clamp(12px, 0.9vw, 15px);
 }
 
-.main-nav a:hover, .social-links a:hover, .text-link:hover {
+.main-nav a:hover, .social-links a:hover, .social-links-contacts a:hover, .text-link:hover {
   color: var(--bronze);
 }
 
@@ -576,6 +576,108 @@ body {
   margin-top: 80px;
   padding-top: 50px;
   border-top: 1px solid var(--line);
+}
+
+/* FIND: CONTACT PAGE */
+.contact-page { padding-top: 80px; padding-bottom: 125px; }
+
+.contact-page-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(56px, 7vw, 74px);
+  letter-spacing: -0.045em;
+  line-height: .98;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+.contact-page-intro {
+  max-width: 520px;
+  margin: 0 auto 70px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.contact-list {
+  max-width: 760px;
+  margin-inline: auto;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+
+/* Resets the global serif h2 style so the labels match your other small labels */
+.contact-label {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.contact-email {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  justify-self: start;
+  border-bottom: 1px solid var(--bronze);
+  padding-bottom: 3px;
+  transition: color .2s ease;
+}
+.contact-email:hover { color: var(--bronze); }
+
+.contact-elsewhere {
+  max-width: 760px;
+  margin-inline: auto;
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-elsewhere .social-links { flex-wrap: wrap; }
+
+.contact-location {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.contact-pin {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  fill: var(--bronze);
+}
+.contact-place {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.social-links-contacts {
+  display: flex; 
+  gap: 20px;
+  font-size: 15px; 
+}
+
+@media (max-width: 640px) {
+  .contact-page { padding-top: 50px; padding-bottom: 80px; }
+  .contact-page-intro { margin-bottom: 45px; }
+  .contact-row { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
 }
 
 @media (max-width: 640px) {
