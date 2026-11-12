@@ -42,7 +42,29 @@
 
   </header>
   <main>
-    <h1 class="nothing-here">Nothing to see here yet!</h1>
+    <section class="works-section section-shell">
+  
+      <h1 class="works-title">Store</h1>
+
+      <div class="works-filter" role="group" aria-label="Filter works">
+        <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-filter="pieces" aria-pressed="false">Independent Pieces</button>
+        <button class="filter-btn" type="button" data-filter="suites" aria-pressed="false">Suites</button>
+      </div>
+  
+      <div class="works-grid">
+  
+        <!-- PIECE — copy this whole <a> block to add more pieces -->
+        <a class="work-card" data-category="pieces" href="store/store-piece-template.html">
+          <div class="work-image">
+            <img src="images/coming-soon.png" alt="Are You Listening" loading="lazy">
+          </div>
+          <h2 class="work-name">Echo</h2>
+          <p class="work-meta">2026 • SSAA choir and Piano (+ other editions)</p>
+        </a>
+      </div>
+      <h1 class="nothing-here">Nothing to see here yet!</h1>
+    </section>
   </main>
   <script src="script.js"></script>
 </body>
