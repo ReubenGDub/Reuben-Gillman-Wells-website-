@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Collection Title by Reuben Gillman-Wells.">
+<meta name="theme-color" content="#202B36">
+<title>Reuben Gillman-Wells — Collection Title</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="site-header" id="top">
+  <a class="wordmark" href="../index.html" aria-label="Reuben Gillman-Wells home">
+    Reuben Gillman-Wells<span></span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <a href="../index.html">Home</a>
+    <a href="../gallery.html" aria-current="page">Gallery</a>
+    <a href="../store.html">Store</a>
+    <a class="nav-contact" href="../contact.html">
+      Get in touch <span aria-hidden="true">↗&#xFE0E;</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <article class="piece-section section-shell">
+
+    <a class="piece-back" href="../gallery.html">←&#xFE0E; Back to Works</a>
+
+    <!-- TITLE -->
+    <h1 class="piece-title">Collection Title</h1>
+
+    <!-- VIDEO OR IMAGE — grey box shows until you uncomment one option -->
+    <div class="piece-video">
+      <div class="video-frame">
+
+        <!-- OPTION A: YouTube video
+        <iframe
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+          title="Collection Title"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        -->
+
+        <!-- OPTION B: Image
+        <img src="../images/collection.jpg" alt="Describe the image here" loading="lazy">
+        -->
+
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <section class="piece-notes">
+      <h2 class="piece-heading">Description</h2>
+      <div class="piece-notes-body">
+        <p>Write your description here. Each paragraph goes in its own p tag.</p>
+      </div>
+    </section>
+
+    <!-- CONTENTS -->
+    <section class="collection-contents">
+      <h2 class="piece-heading">Contents</h2>
+      <ol class="contents-list">
+
+        <!-- If the piece has its own page, link it. The page is in the same folder, so no ../ -->
+        <li>
+          <span class="contents-title">Track 1</span>
+          <span class="contents-meta">0:00</span>
+        </li>
+
+        <!-- If there's no page for the piece, use a plain span instead -->
+        <li>
+          <span class="contents-title">Track 2</span>
+          <span class="contents-meta">0:00</span>
+        </li>
+
+        <li>
+          <span class="contents-title">Track 3</span>
+          <span class="contents-meta">0:00</span>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="piece-cta">
+      <p>
+        Would you like to work with me or put on a show? Please head to the
+        <a class="piece-link" href="../contact.html">Get in Touch</a>
+        page and send me an email!
+      </p>
+      <a class="button button-dark" href="../contact.html">
+        Get in touch <span aria-hidden="true">↗&#xFE0E;</span>
+      </a>
+    </section>
+
+  </article>
+</main>
+
+<footer class="site-footer section-shell">
+  <a class="footer-name" href="../index.html">Reuben Gillman-Wells<span></span></a>
+  <p>Composer · Songwriter · Musician</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/reubengillmanwells/" target="_blank" rel="noopener noreferrer">Instagram ↗&#xFE0E;</a>
+    <a href="https://www.tiktok.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">TikTok ↗&#xFE0E;</a>
+    <a href="https://www.youtube.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">YouTube ↗&#xFE0E;</a>
+  </div>
+  <span class="copyright">© <span id="currentYear"></span> Reuben Gillman-Wells</span>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
