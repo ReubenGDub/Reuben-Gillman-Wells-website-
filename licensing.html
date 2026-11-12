@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Request a performance licence for a work by Reuben Gillman-Wells.">
+<meta name="theme-color" content="#202B36">
+<title>Reuben Gillman-Wells — Performance Licence Form</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header" id="top">
+  <a class="wordmark" href="index.html" aria-label="Reuben Gillman-Wells home">
+    Reuben Gillman-Wells<span></span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="store.html" aria-current="page">Store</a>
+    <a class="nav-contact" href="contact.html">
+      Get in touch <span aria-hidden="true">↗&#xFE0E;</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <section class="contact-page section-shell">
+
+    <h1 class="contact-page-title">Performance Licence Form</h1>
+    <p class="contact-page-intro">
+      Please fill in the details below and I'll be in touch soon to talk through your performance.
+    </p>
+
+    <!-- Replace YOUR_FORM_ID with the ID from your Formspree form (see notes) -->
+    <form class="licensing-form" action="https://formspree.io/f/mrpqgywz" method="POST">
+
+      <input type="hidden" name="_subject" value="New performance licence enquiry">
+      <!-- Spam trap: real people never see or fill this in -->
+      <div class="form-hp" aria-hidden="true">
+        <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="form-field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="form-field">
+        <label for="organisation">Ensemble / organisation <span class="optional">(optional)</span></label>
+        <input type="text" id="organisation" name="organisation">
+      </div>
+
+      <div class="form-field">
+        <label for="piece">Piece</label>
+        <input type="text" id="piece" name="piece" required>
+      </div>
+
+      <div class="form-field">
+        <label for="edition">Edition</label>
+        <select id="edition" name="edition"></select>
+      </div>
+
+      <div class="form-field">
+        <label for="performers">Number of performers</label>
+        <input type="number" id="performers" name="performers" min="1" step="1" inputmode="numeric" required>
+      </div>
+
+      <div class="form-field">
+        <label for="performers">Date of Performance (if more than one, put first date here and the other(s) in the "anything else I should know?" section)</label>
+        <input type="date" id="performers" name="date" min="1" step="1" inputmode="numeric" required>
+      </div>
+
+      <div class="form-field">
+        <label for="piece">Performance Venue</label>
+        <input type="text" id="venue" name="venue" required>
+      </div>
+
+      <div class="form-field">
+        <label for="entry-type">Ticketed or free entry</label>
+        <select id="entry-type" name="entry_type" required>
+          <option value="" disabled selected>Select...</option>
+          <option>Ticketed</option>
+          <option>Free entry</option>
+        </select>
+      </div>
+
+      <!-- MORE FIELDS GO HERE LATER (date, venue, ticketed or free, audience size, etc.) -->
+
+      <div class="form-field">
+        <label for="message">Anything else I should know? <span class="optional">(optional)</span></label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+
+      <button class="button button-dark" type="submit">Send enquiry</button>
+
+    </form>
+
+  </section>
+</main>
+
+<footer class="site-footer section-shell">
+  <a class="footer-name" href="index.html">Reuben Gillman-Wells<span></span></a>
+  <p>Composer · Songwriter · Musician</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/reubengillmanwells/" target="_blank" rel="noopener noreferrer">Instagram ↗&#xFE0E;</a>
+    <a href="https://www.tiktok.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">TikTok ↗&#xFE0E;</a>
+    <a href="https://www.youtube.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">YouTube ↗&#xFE0E;</a>
+  </div>
+  <span class="copyright">© <span id="currentYear"></span> Reuben Gillman-Wells</span>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Pre-fills the piece and edition from the store page link
+(function () {
+  const params = new URLSearchParams(location.search);
+  const piece = params.get("piece");
+  const edition = params.get("edition");
+  const editions = (params.get("editions") || "").split("|").filter(Boolean);
+
+  if (piece) document.getElementById("piece").value = piece;
+
+  const select = document.getElementById("edition");
+  if (edition && !editions.includes(edition)) editions.unshift(edition);
+  editions.forEach((name) => select.add(new Option(name, name, false, name === edition)));
+  select.add(new Option("Other / not sure", "Other / not sure", false, !edition));
+})();
+</script>
+</body>
+</html>
