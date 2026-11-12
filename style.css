@@ -503,6 +503,32 @@ body {
   color: var(--muted);
 }
 
+/* WORKS FILTER */
+.works-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 34px;
+  margin: -30px auto 60px;   /* the negative top margin pulls it up under the "Works" title */
+}
+.filter-btn {
+  border: 0;
+  background: transparent;
+  padding: 6px 0;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.filter-btn:hover { color: var(--bronze); }
+.filter-btn.is-active { color: var(--ink); border-bottom-color: var(--bronze); }
+.filter-btn:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
+
+/* The [hidden] attribute needs help because these classes set their own display */
+.work-card[hidden], .nothing-here[hidden] { display: none; }
+
 .nothing-here {
   font-family: var(--serif);
   margin-inline: auto;
@@ -586,6 +612,200 @@ body {
   margin-top: 80px;
   padding-top: 50px;
   border-top: 1px solid var(--line);
+}
+
+/* SUITE PAGE — piece buttons */
+.suite-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 34px;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+.suite-tab {
+  border: 0;
+  background: transparent;
+  padding: 6px 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: .06em;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.suite-tab:hover { color: var(--bronze); }
+.suite-tab.is-active { color: var(--ink); border-bottom-color: var(--bronze); }
+.suite-tab:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
+.suite-panel[hidden] { display: none; }
+
+/* COLLECTION PAGE — contents list and call to action */
+.collection-contents { max-width: 640px; margin: 80px auto 0; }
+
+.contents-list { list-style: none; margin: 0; padding: 0; counter-reset: track; }
+.contents-list li {
+  counter-increment: track;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contents-list li:first-child { border-top: 1px solid var(--line); }
+.contents-list li::before {
+  content: counter(track, decimal-leading-zero);
+  min-width: 26px;
+  font-size: 11px;
+  letter-spacing: .15em;
+  color: var(--bronze);
+}
+.contents-title {
+  flex: 1;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: color .2s ease;
+}
+a.contents-title:hover { color: var(--bronze); }
+.contents-meta { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.piece-cta {
+  max-width: 520px;
+  margin: 100px auto 0;
+  text-align: center;
+}
+.piece-cta p { margin: 0 0 28px; font-size: 15px; line-height: 1.9; }
+
+@media (max-width: 640px) {
+  .collection-contents { margin-top: 55px; }
+  .contents-title { font-size: 20px; }
+  .piece-cta { margin-top: 70px; }
+}
+
+/* FIND: STORE PIECE PAGE */
+.video-frame img[hidden] { display: none; }
+
+.store-actions {
+  max-width: 640px;
+  margin: -40px auto 70px;      /* pulls up under the image (the image block has an 80px bottom margin) */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.store-select {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 49px;
+  padding: 0 46px 0 20px;
+  border: 1px solid var(--navy);
+  border-radius: 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23202B36' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right 18px center;
+  background-size: 12px;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: .055em;
+  cursor: pointer;
+}
+.store-select:hover { background-color: var(--ivory); }
+.store-select:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+
+.store-section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 50px 0;
+  border-top: 1px solid var(--line);
+}
+.store-section:last-of-type { padding-bottom: 0; }
+
+.store-heading {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(30px, 3.3vw, 40px);
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+}
+
+.store-field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.store-section .store-select { min-width: 220px; max-width: 100%; }
+
+.store-price {
+  margin: 28px 0;
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.store-details {
+  margin: 0 0 32px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.store-details li { margin-bottom: 4px; }
+
+.button[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
+.button[aria-disabled="true"]:hover { transform: none; background: var(--navy); }
+
+/* LICENSING FORM PAGE */
+.licensing-form {
+  max-width: 640px;
+  margin: 0 auto;
+  display: grid;
+  gap: 26px;
+}
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.form-field .optional { color: var(--muted); letter-spacing: .04em; text-transform: none; font-weight: 400; }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+.form-field textarea { min-height: 150px; resize: vertical; }
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+.form-hp { position: absolute; left: -9999px; }   /* spam trap, keep hidden */
+.licensing-form .button { border: 0; cursor: pointer; justify-self: start; }
+
+@media (max-width: 640px) {
+  .store-actions { margin-top: -20px; margin-bottom: 55px; }
+  .store-actions .button, .store-actions .store-select { width: 100%; }
+  .store-section { padding: 40px 0; }
+  .store-price { font-size: 30px; }
+  /* 16px stops iPhone Safari zooming in when a field is tapped */
+  .store-select,
+  .form-field input,
+  .form-field select,
+  .form-field textarea { font-size: 16px; }
 }
 
 /* FIND: CONTACT PAGE */
