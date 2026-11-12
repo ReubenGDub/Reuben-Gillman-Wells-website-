@@ -75,6 +75,8 @@
   
       if (lay.link) {
         buyBtn.href = lay.link;
+        buyBtn.target = "_blank";
+        buyBtn.rel = "noopener noreferrer";
         buyBtn.removeAttribute("aria-disabled");
       } else {
         buyBtn.href = "#";
