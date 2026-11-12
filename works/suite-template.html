@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Suite Title by Reuben Gillman-Wells.">
+<meta name="theme-color" content="#202B36">
+<title>Reuben Gillman-Wells — Suite Title</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="site-header" id="top">
+  <a class="wordmark" href="../index.html" aria-label="Reuben Gillman-Wells home">
+    Reuben Gillman-Wells<span></span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <a href="../index.html">Home</a>
+    <a href="../gallery.html" aria-current="page">Gallery</a>
+    <a href="../store.html">Store</a>
+    <a class="nav-contact" href="../contact.html">
+      Get in touch <span aria-hidden="true">↗&#xFE0E;</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <article class="piece-section section-shell">
+
+    <a class="piece-back" href="../gallery.html">←&#xFE0E; Back to Works</a>
+
+    <!-- SUITE TITLE -->
+    <h1 class="piece-title">Suite Title</h1>
+
+    <!-- PIECE BUTTONS — one per piece. data-target must match a panel id below -->
+    <div class="suite-tabs" role="group" aria-label="Pieces in this suite">
+      <button class="suite-tab is-active" type="button" data-target="piece-1" aria-pressed="true">I. First Piece</button>
+      <button class="suite-tab" type="button" data-target="piece-2" aria-pressed="false">II. Second Piece</button>
+      <button class="suite-tab" type="button" data-target="piece-3" aria-pressed="false">III. Third Piece</button>
+    </div>
+
+
+    <!-- ============ PANEL 1 — copy this whole block to add a piece ============ -->
+    <div class="suite-panel" id="piece-1">
+
+      <div class="piece-video">
+        <div class="video-frame">
+          <!-- OPTION A: YouTube video
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="First Piece"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          -->
+
+          <!-- OPTION B: Image
+          <img src="../images/first-piece.jpg" alt="Describe the image here" loading="lazy">
+          -->
+        </div>
+      </div>
+
+      <section class="piece-notes">
+        <h2 class="piece-heading">Program Notes</h2>
+        <div class="piece-notes-body">
+          <p></p>
+        </div>
+      </section>
+
+      <section class="piece-details">
+        <div class="piece-col">
+          <div class="piece-item">
+            <h3 class="piece-label">Instrumentation</h3>
+            <p></p>
+          </div>
+          <div class="piece-item">
+            <h3 class="piece-label">Duration</h3>
+            <p></p>
+          </div>
+        </div>
+        <div class="piece-col">
+          <div class="piece-item">
+            <h3 class="piece-label">Premiere</h3>
+            <p></p>
+          </div>
+          <div class="piece-item">
+            <h3 class="piece-label">Available for Purchase</h3>
+            <p></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEXT — choral pieces only. Delete or leave commented for instrumental pieces
+      <section class="piece-text">
+        <h2 class="piece-heading">Text</h2>
+        <div class="piece-text-body">
+          <p>First line of the text<br>Second line of the text</p>
+          <p class="piece-credit">Poem Title by Poet Name</p>
+        </div>
+      </section>
+      -->
+
+    </div>
+    <!-- ============ END PANEL 1 ============ -->
+
+
+    <!-- ============ PANEL 2 ============ -->
+    <div class="suite-panel" id="piece-2" hidden>
+
+      <div class="piece-video">
+        <div class="video-frame">
+          <!-- OPTION A: YouTube video
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Second Piece"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          -->
+
+          <!-- OPTION B: Image
+          <img src="../images/second-piece.jpg" alt="Describe the image here" loading="lazy">
+          -->
+        </div>
+      </div>
+
+      <section class="piece-notes">
+        <h2 class="piece-heading">Program Notes</h2>
+        <div class="piece-notes-body">
+          <p>Write your program notes here.</p>
+        </div>
+      </section>
+
+      <section class="piece-details">
+        <div class="piece-col">
+          <div class="piece-item">
+            <h3 class="piece-label">Instrumentation</h3>
+            <p>Piano and strings</p>
+          </div>
+          <div class="piece-item">
+            <h3 class="piece-label">Duration</h3>
+            <p>c. 5 minutes</p>
+          </div>
+        </div>
+        <div class="piece-col">
+          <div class="piece-item">
+            <h3 class="piece-label">Premiere</h3>
+            <p>Venue, City — Date 2026</p>
+          </div>
+          <div class="piece-item">
+            <h3 class="piece-label">Available for Purchase</h3>
+            <p><a class="piece-link" href="../contact.html">Available on request ↗&#xFE0E;</a></p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- ============ END PANEL 2 ============ -->
+
+
+    <!-- ============ PANEL 3 ============ -->
+    <div class="suite-panel" id="piece-3" hidden>
+
+      <div class="piece-video">
+        <div class="video-frame">
+          <!-- OPTION A: YouTube video
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Third Piece"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          -->
+
+          <!-- OPTION B: Image
+          <img src="../images/third-piece.jpg" alt="Describe the image here" loading="lazy">
+          -->
+        </div>
+      </div>
+
+      <section class="piece-notes">
+        <h2 class="piece-heading">Program Notes</h2>
+        <div class="piece-notes-body">
+          <p>Write your program notes here.</p>
+        </div>
+      </section>
+
+      <section class="piece-details">
+        <div class="piece-col">
+          <div class="piece-item">
+            <h3 class="piece-label">Instrumentation</h3>
+            <p>Piano and strings</p>
+          </div>
+          <div class="piece-item">
+            <h3 class="piece-label">Duration</h3>
+            <p>c. 5 minutes</p>
+          </div>
+        </div>
+        <div class="piece-col">
+          <div class="piece-item">
+            <h3 class="piece-label">Premiere</h3>
+            <p>Venue, City — Date 2026</p>
+          </div>
+          <div class="piece-item">
+            <h3 class="piece-label">Available for Purchase</h3>
+            <p><a class="piece-link" href="../contact.html">Available on request ↗&#xFE0E;</a></p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- ============ END PANEL 3 ============ -->
+
+  </article>
+</main>
+
+<footer class="site-footer section-shell">
+  <a class="footer-name" href="../index.html">Reuben Gillman-Wells<span></span></a>
+  <p>Composer · Songwriter · Musician</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/reubengillmanwells/" target="_blank" rel="noopener noreferrer">Instagram ↗&#xFE0E;</a>
+    <a href="https://www.tiktok.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">TikTok ↗&#xFE0E;</a>
+    <a href="https://www.youtube.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">YouTube ↗&#xFE0E;</a>
+  </div>
+  <span class="copyright">© <span id="currentYear"></span> Reuben Gillman-Wells</span>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
