@@ -47,11 +47,19 @@
     <section class="works-section section-shell">
   
       <h1 class="works-title">Works</h1>
+
+      <div class="works-filter" role="group" aria-label="Filter works">
+        <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-filter="pieces" aria-pressed="false">Independent Pieces</button>
+        <button class="filter-btn" type="button" data-filter="suites" aria-pressed="false">Suites</button>
+        <button class="filter-btn" type="button" data-filter="albums" aria-pressed="false">Albums</button>
+        <button class="filter-btn" type="button" data-filter="soundtracks" aria-pressed="false">Soundtracks</button>
+      </div>
   
       <div class="works-grid">
   
         <!-- PIECE — copy this whole <a> block to add more pieces -->
-        <a class="work-card" href="works/are-you-listening.html">
+        <a class="work-card" data-category="pieces" href="works/are-you-listening.html">
           <div class="work-image">
             <img src="images/coming-soon.png" alt="Are You Listening" loading="lazy">
           </div>
@@ -60,7 +68,7 @@
         </a>
   
         <!-- PIECE -->
-        <a class="work-card" href="works/echo.html">
+        <a class="work-card" data-category="pieces" href="works/echo.html">
           <div class="work-image">
             <img src="images/coming-soon.png" alt="Echo" loading="lazy">
           </div>
@@ -69,7 +77,7 @@
         </a>
   
         <!-- PIECE -->
-        <a class="work-card" href="works/l-amour.html">
+        <a class="work-card" data-category="pieces" href="works/l-amour.html">
           <div class="work-image">
             <img src="images/l-amour-picture.png" alt="L'amour" loading="lazy">
           </div>
@@ -78,7 +86,7 @@
         </a>
 
         <!-- PIECE -->
-        <a class="work-card" href="works/the-black-fleet.html">
+        <a class="work-card" data-category="pieces" href="works/the-black-fleet.html">
           <div class="work-image">
             <img src="images/coming-soon.png" alt="The Black Fleet" loading="lazy">
           </div>
@@ -87,7 +95,7 @@
         </a>
 
         <!-- PIECE -->
-        <a class="work-card" href="works/the-sun-always-sets-in-the-west.html">
+        <a class="work-card" data-category="pieces" href="works/the-sun-always-sets-in-the-west.html">
           <div class="work-image">
             <img src="images/the-sun-always-sets-in-the-west-picture.png" alt="The Sun Always Sets in the West" loading="lazy">
           </div>
@@ -96,6 +104,8 @@
         </a>
   
       </div>
+
+      <p class="nothing-here" id="worksEmpty" hidden>Nothing to see here yet!</p>
   
     </section>
   
