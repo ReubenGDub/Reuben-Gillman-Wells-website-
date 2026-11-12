@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Buy the score for Piece Title by Reuben Gillman-Wells.">
+<meta name="theme-color" content="#202B36">
+<title>Reuben Gillman-Wells — Piece Title (Score)</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="site-header" id="top">
+  <a class="wordmark" href="../index.html" aria-label="Reuben Gillman-Wells home">
+    Reuben Gillman-Wells<span></span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+    <a href="../index.html">Home</a>
+    <a href="../gallery.html">Gallery</a>
+    <a href="../store.html" aria-current="page">Store</a>
+    <a class="nav-contact" href="../contact.html">
+      Get in touch <span aria-hidden="true">↗&#xFE0E;</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <article class="piece-section section-shell">
+
+    <a class="piece-back" href="../store.html">←&#xFE0E; Back to Store</a>
+
+    <!-- TITLE -->
+    <h1 class="piece-title">Piece Title</h1>
+
+    <!-- SCORE PREVIEW — grey box shows until the edition has an image -->
+    <div class="piece-video">
+      <div class="video-frame">
+        <img id="scorePreview" src="" alt="" hidden>
+      </div>
+    </div>
+
+    <!-- MORE INFO + MORE EDITIONS -->
+    <div class="store-actions">
+      <a class="button button-dark" id="moreInfoBtn" href="../gallery.html">
+        More info <span aria-hidden="true">↗&#xFE0E;</span>
+      </a>
+      <select class="store-select" id="editionSelect" aria-label="More editions"></select>
+    </div>
+
+    <!-- STUDY SCORE -->
+    <section class="store-section">
+      <h2 class="store-heading">Study Score Purchase</h2>
+
+      <label class="store-field-label" for="layoutSelect">Layout</label>
+      <select class="store-select" id="layoutSelect"></select>
+
+      <p class="store-price" id="studyPrice">$0 AUD</p>
+
+      <h3 class="piece-label">Details</h3>
+      <!-- Edit these points to match your study score licence -->
+      <ul class="store-details">
+        <li>Instant PDF download of the score</li>
+        <li>For personal study, teaching and rehearsal reference</li>
+        <li>Not for public performance or redistribution (see Performance Licence below)</li>
+      </ul>
+
+      <!-- Add your shop link inside each layout in the PIECE data below.
+           Until a link is added, this button does nothing. -->
+      <a class="button button-dark" id="buyBtn" href="#">Buy Now</a>
+    </section>
+
+    <!-- PERFORMANCE LICENCE -->
+    <section class="store-section">
+      <h2 class="store-heading">Performance License</h2>
+
+      <p class="store-price" id="performFrom">From: $0 AUD</p>
+
+      <h3 class="piece-label">Details</h3>
+      <!-- Edit these points to match your performance licence -->
+      <ul class="store-details">
+        <li>Permission to perform the work publicly</li>
+        <li>Price depends on the ensemble, venue and type of event</li>
+        <li>Get in touch and we'll agree on the details together</li>
+      </ul>
+
+      <a class="button button-dark" id="performBtn" href="../licensing.html">
+        I'd like to perform this!
+      </a>
+    </section>
+
+  </article>
+</main>
+
+<footer class="site-footer section-shell">
+  <a class="footer-name" href="../index.html">Reuben Gillman-Wells<span></span></a>
+  <p>Composer · Songwriter · Musician</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/reubengillmanwells/" target="_blank" rel="noopener noreferrer">Instagram ↗&#xFE0E;</a>
+    <a href="https://www.tiktok.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">TikTok ↗&#xFE0E;</a>
+    <a href="https://www.youtube.com/@reubengillmanwells" target="_blank" rel="noopener noreferrer">YouTube ↗&#xFE0E;</a>
+  </div>
+  <span class="copyright">© <span id="currentYear"></span> Reuben Gillman-Wells</span>
+</footer>
+
+<!-- ================== EDIT THIS BLOCK FOR EACH PIECE ================== -->
+<script>
+const PIECE = {
+  title: "Piece Title",
+  infoPage: "../works/are-you-listening.html",  // the piece's gallery info page
+  performanceFrom: 50,                          // fixed "From: $50 AUD"
+  defaultEdition: "ssaa",                       // the original edition
+
+  editions: {
+    ssaa: {
+      name: "SSAA",
+      image: "../images/score-ssaa.jpg",        // "" = grey box
+      layouts: {
+        "full-score": { label: "Full score", price: 15, link: "" },
+        "solo-piano": { label: "Solo piano", price: 10, link: "" }
+      }
+    },
+    satb: {
+      name: "SATB",
+      image: "../images/score-satb.jpg",
+      layouts: {
+        "full-score": { label: "Full score", price: 15, link: "" },
+        "solo-piano": { label: "Solo piano", price: 10, link: "" }
+      }
+    }
+  }
+};
+</script>
+<!-- ==================================================================== -->
+
+<script src="../store-piece.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
