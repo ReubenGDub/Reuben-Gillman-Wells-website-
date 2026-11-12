@@ -126,3 +126,69 @@ audioPlayers.forEach((player) => {
     if (e.key === "ArrowLeft") audio.currentTime = Math.max(0, audio.currentTime - 5);
   });
 });
+
+// =========================================================
+// FIND: WORKS FILTER — Shows only the tiles that match the chosen category.
+// =========================================================
+const filterButtons = document.querySelectorAll(".filter-btn");
+const workCards = document.querySelectorAll(".work-card");
+const worksEmpty = document.getElementById("worksEmpty");
+
+if (filterButtons.length && workCards.length) {
+  const applyFilter = (filter) => {
+    let shown = 0;
+    workCards.forEach((card) => {
+      const cats = (card.dataset.category || "").split(" ");
+      const show = filter === "all" || cats.includes(filter);
+      card.hidden = !show;
+      if (show) shown++;
+    });
+    filterButtons.forEach((btn) => {
+      const on = btn.dataset.filter === filter;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+    if (worksEmpty) worksEmpty.hidden = shown > 0;
+  };
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
+  });
+}
+
+// =========================================================
+// FIND: SUITE PAGE — Switches between the pieces in a suite.
+// =========================================================
+const suiteTabs = document.querySelectorAll(".suite-tab");
+const suitePanels = document.querySelectorAll(".suite-panel");
+
+if (suiteTabs.length && suitePanels.length) {
+  const showPiece = (id) => {
+    if (!document.getElementById(id) || !document.getElementById(id).classList.contains("suite-panel")) {
+      id = suitePanels[0].id;
+    }
+    suitePanels.forEach((panel) => {
+      const match = panel.id === id;
+      // Reloading a hidden video stops it, so it doesn't keep playing in the background
+      if (!match && !panel.hidden) {
+        panel.querySelectorAll("iframe").forEach((f) => { f.src = f.src; });
+      }
+      panel.hidden = !match;
+    });
+    suiteTabs.forEach((tab) => {
+      const on = tab.dataset.target === id;
+      tab.classList.toggle("is-active", on);
+      tab.setAttribute("aria-pressed", String(on));
+    });
+  };
+
+  suiteTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      showPiece(tab.dataset.target);
+      history.replaceState(null, "", "#" + tab.dataset.target);
+    });
+  });
+
+  // Lets you link straight to a piece, e.g. my-suite.html#piece-2
+  if (location.hash) showPiece(location.hash.slice(1));
+}
